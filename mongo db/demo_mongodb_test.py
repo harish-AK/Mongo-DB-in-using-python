@@ -41,10 +41,25 @@ else:
 
 """insert data"""
 
-mydict = { "name": "John", "address": "Highway 37" }
+mydict = { "name": "John", "role": "Highway 37" }
+
+
+"""insert_one() this method used to insert the data in data base where it retrieve the id of the inserted document"""
+"""mycol is the collection(table)"""
 
 x = mycol.insert_one(mydict)
 
 print(x)
-
+"""assign unique id for the values"""
 print(x.inserted_id)
+
+mylist=[
+  {'name': 'bruse wayne','role':'batman'},
+  {'name': 'alfred pennyworth','role':'body guard'},
+  {'name': 'salena kyle','role':'bat women'},
+  {'name': 'penguin','role':'thug'},
+  {'name': 'harvey dent','role':'mayor'},
+]
+
+y=mycol.insert_many(mylist)
+print("multiple documents ",y)
